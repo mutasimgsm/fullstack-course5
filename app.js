@@ -21,7 +21,7 @@ function showFunc() {
   var strConvert = string.split(',');
   
   // check number of lunch
-  if (strConvert.length == ""){
+  if (strConvert.length === ""){
     document.getElementById('message').innerHTML = "Enter data please!";
   }
   else if (strConvert.length <= 3) {
