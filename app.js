@@ -1,34 +1,27 @@
-// Object litiral to store lunch(names)
-var lunch = {
-  name: ""
-};
-document.addEventListener("DOMContentLoaded", loadFunc);
-function loadFunc(event) {
-  document.getElementById("button").addEventListener("click", getData);
-}
+(function () {
+'use strict';
+angular.module('Lunch', [])
+.controller('LunchController', LunchController);
 
-function getData(event) {
-  showFunc();
-}
+LunchController.$inject = ['$scope'];
+function LunchController ($scope) {
+  $scope.name = "";
+  $scope.string ;
 
-function showFunc() {
-  lunch.name = document.getElementById('lunch-menu').value;
-
-  // Sitt the input value to string variable
-  var string = lunch.name;
-  // convert string to array whether to count lunch (names)
-  // use comma as splite argument
-  var strConvert = string.split(',');
-  
-  // check number of lunch
-  if(strConvert.length <= 1) {
-    document.getElementById('message').innerHTML = "Enter data please!";
-  }
-  else if (strConvert.length <= 3) {
-
-    document.getElementById('message').innerHTML = "Enjoy!";
-  }else {
-    document.getElementById('message').innerHTML = "Too much!";
+  $scope.getData = function () {
+  var  data = $scope.name;
+  // convert string to array to count length
+  // uses split method with comma char
+  var strConvert = data.split(',');
+  if (strConvert.length <= 1) {
+    $scope.string= "Enter data please!";
+  }else if (strConvert.length <= 3) {
+    $scope.string = "Enjoy!";
+  } else {
+    $scope.string = "Too much!";
   }
   console.log(strConvert);
-}
+  };
+};
+
+})();
